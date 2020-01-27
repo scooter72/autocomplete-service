@@ -17,12 +17,13 @@ Instructions on how to deploy \ run the service
 Discussion
 ----------
 1. **Performance - analysis and ways to improve**  
-The solution sorts the diciotnary once, utilizes binary search in each query. We pick up the index of the prefix argument and returns all the words starting with the prefix from that index.
+The solution sorts the diciotnary once and utilizes a binary search in each query. We pick up the index of the prefix returned by the binary search and return all the words starting from that index.
 The complexcity of this solultion is *O(log(n) x len(prefix))* because each comparison in the worst case is O( len(prefix) ).
 The below illustration depicts the binary-search solution:  
 ![binary-search](/binary-search.jpg)    
-Alternative solution would be to create a tree structure that maps all the possible substrings in the words in the dictionary holding in each refrence to the word id in the dictionary that was acommulated until that node, this approach will return result in constant time *len(prefix)xO(1)*. One would argue that scanning 300K words using binary search is fast enough not to justify the second approach.
-The decision needs to be taken based on a benchmark.
+Alternative solution would be to create a tree structure that maps all the possible substrings of the words in the dictionary, holding in each node list of refrences to the all the word indexes in the dictionary, acommulated until that node.
+The complexcity of this solultion is constant time *len(prefix) x O(1)*.  
+One would argue that scanning 300K words using binary search is fast enough not to justify the second approach, but the decision needs to be taken based on a benchmark and a defined SLA.
 The below illustration depicts the binary-search solution:  
 ![AutoComplete_Opt](/AutoComplete_Opt.jpg)  
 2. **Scalability - how would you scale up your solution and what are the implications**  
