@@ -23,7 +23,7 @@ The below illustration depicts the binary-search solution:
 ![binary-search](/binary-search.jpg)    
 Alternative solution would be to create a tree structure that maps all the possible substrings of the words in the dictionary, holding in each node list of refrences to the all the word indexes in the dictionary, acommulated until that node.
 The complexcity of this solultion is constant time *len(prefix) x O(1)*.  
-One would argue that scanning 300K words using binary search is fast enough not to justify the second approach, but the decision needs to be taken based on a benchmark and a defined SLA.
+One would argue that scanning 300K words using binary search is fast enough not to justify the second approach, but the decision needs to be taken based on a benchmark and a defined SLA.  
 The below illustration depicts the binary-search solution:  
 ![AutoComplete_Opt](/AutoComplete_Opt.jpg)  
 2. **Scalability - how would you scale up your solution and what are the implications**  
