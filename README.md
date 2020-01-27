@@ -9,7 +9,7 @@ Instructions on how to deploy \ run the service
 1. Prerequisites: apache-maven-3.6.3 (http://tinyurl.com/vmuon48), JDK1.8(http://tinyurl.com/yxz36gux)
 2. clone/download this repository
 3. Build the project: open cmd in the project folder and type: `mvn install`
-4. Run and test: open cmd in the project folder and type: `mvn cargo:run`
+4. Run and test: to start the server, open cmd in the project folder and type: `mvn cargo:run`
 5. GET - /dictionary?prefix='xxx' - returns a json array with all the matching words: open browser window with the following address: http://localhost:8080/autocomplete/service/dictionary?prefix=AA
 6. GET - /statistics - returns a json object with SERVER statistics: open browser window with the following address: http://localhost:8080/autocomplete/service/statistics
 
