@@ -32,4 +32,4 @@ The below illustration depicts the suggested distributed solution:
 ![deployment](/Deployment.jpg)    
 
 3. **High availability - how would you make your solution always (99.99% of the time) available**  
-By applying the deplyment approach described above, and using more than one geo region of a cloud provider for deployment, we make the solution highly availability.
+By applying the deplyment approach described above, and using more than one geo-region of a cloud provider for deployment, we can make the solution highly available.
