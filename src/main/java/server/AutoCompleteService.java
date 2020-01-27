@@ -77,13 +77,12 @@ public class AutoCompleteService {
         List<String> matchingWords = new ArrayList<>();
 
         // Arrays.binarySearch returns the index of the search key, if it is contained in the array;
-        // otherwise, (-(insertion point) - 1)
+        // otherwise, (-(insertion point) - 1). The insertion point is defined as the point at which the key would be
+        // inserted into the array: the index of the first element greater than the key, or a.length if all elements in
+        // the array are less than the specified key
         boolean prefixNotInArray = index < 0;
         if (prefixNotInArray) {
             index = -index - 1;
-        } else {
-            // forward index to the next word after the prefix
-            index++;
         }
 
         if (index < words.length) {

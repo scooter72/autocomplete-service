@@ -14,7 +14,7 @@ public class AutoCompleteServiceTest {
 
         AutoCompleteService service = getAutoCompleteService();
 
-        String[] expectedResult = new String[]{"AAH","AAHED","AAHING","AAHS","AAL","AALII","AALIIS","AALS","AARDVARK",
+        String[] expectedResult = new String[]{"AA","AAH","AAHED","AAHING","AAHS","AAL","AALII","AALIIS","AALS","AARDVARK",
                     "AARDVARKS","AARDWOLF","AARDWOLVES","AARGH","AARRGH","AARRGHH","AARTI","AARTIS","AAS","AASVOGEL",
                     "AASVOGELS"};
             String[] actualResult = service.getWordsStartingPrefix("AA");
@@ -36,7 +36,7 @@ public class AutoCompleteServiceTest {
 
         AutoCompleteService service = getAutoCompleteService();
 
-        String[] expectedResult = new String[0];
+        String[] expectedResult = new String[]{"ZZZS"};
         String[] actualResult = service.getWordsStartingPrefix("ZZZS");
         assertArrayEquals(expectedResult, actualResult, "Unexpected result");
     }
