@@ -27,7 +27,9 @@ One would argue that scanning 300K words using binary search is fast enough not 
 The below illustration depicts the more optimized tree based solution:  
 ![AutoComplete_Opt](/AutoComplete_Opt.jpg)  
 2. **Scalability - how would you scale up your solution and what are the implications**  
-A scalable solution would be to deploy the service in docker containers, let kubernetes orchestrate the containers at runtime adding and removing nodes based on the CPU and memory usage thresholds, and place a load balancer in front of the service nodes.
+A scalable solution would be to deploy the service in docker containers, let kubernetes orchestrate the containers at runtime adding and removing nodes based on the CPU and memory usage thresholds, and place a load balancer in front of the service nodes.  
+The below illustration depicts the a distributed solution :  
+![deployment](/Deployment.jpg)    
 
 3. **High availability - how would you make your solution always (99.99% of the time) available**  
 By applying the deplyment approach described above, and using more than one geo region of a cloud provider for deployment, we make the solution highly availability.
