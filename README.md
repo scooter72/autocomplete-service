@@ -28,7 +28,7 @@ The below illustration depicts the more optimized tree based solution:
 ![AutoComplete_Opt](/AutoComplete_Opt.jpg)  
 2. **Scalability - how would you scale up your solution and what are the implications**  
 A scalable solution would be to deploy the service in docker containers, let kubernetes orchestrate the containers at runtime adding and removing nodes based on the CPU and memory usage thresholds, and place a load balancer in front of the service nodes.  
-The below illustration depicts the a distributed solution :  
+The below illustration depicts the suggested distributed solution:  
 ![deployment](/Deployment.jpg)    
 
 3. **High availability - how would you make your solution always (99.99% of the time) available**  
