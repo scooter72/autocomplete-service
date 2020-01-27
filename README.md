@@ -14,7 +14,7 @@ Instructions on how to deploy \ run the service
 6. GET - /statistics - returns a json object with SERVER statistics: open browser window with the following address: http://localhost:9080/autocomplete/service/statistics
 
 
-Discussion - add a section where you discuss the following topic with respect to your solution:
+Discussion
 ----------
 1. Performance - analysis and ways to improve 
 
