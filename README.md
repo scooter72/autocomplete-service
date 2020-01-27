@@ -23,7 +23,7 @@ to create a tree structure that maps all the possible substrings in the words in
 
 
 2. **Scalability - how would you scale up your solution and what are the implications**  
-A scalable solution would be to deploy the service in docker containers, let kubernetes orchestrate the containers at runtime adding and removing nodes based on the requests load, and place a load balancer in front of the service nodes.
+A scalable solution would be to deploy the service in docker containers, let kubernetes orchestrate the containers at runtime adding and removing nodes based on the CPU and memory usage thresholds, and place a load balancer in front of the service nodes.
 
 3. **High availability - how would you make your solution always (99.99% of the time) available**  
-By applying the deplyment approach described above, and using more than one geo region of a cloud provider for deployment we can achieve high availability.
+By applying the deplyment approach described above, and using more than one geo region of a cloud provider for deployment, we make the solution highly availability.
