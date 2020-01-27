@@ -52,7 +52,7 @@ public class AutoCompleteService {
         long start = System.currentTimeMillis();
 
         try {
-            words = prefix == null
+            words = prefix == null || prefix.length() == 0
                     ? new String[0]
                     : getWordsStartingWithPrefix(dictionary, prefix);
             statistics.onRequestHandled(new RequestHandledEvent(System.currentTimeMillis()-start));
@@ -76,14 +76,24 @@ public class AutoCompleteService {
         int index = Arrays.binarySearch(words, prefix);
         List<String> matchingWords = new ArrayList<>();
 
-        if (index > -1) {
+        // Arrays.binarySearch returns the index of the search key, if it is contained in the array;
+        // otherwise, (-(insertion point) - 1)
+        boolean prefixNotInArray = index < 0;
+        if (prefixNotInArray) {
+            index = -index - 1;
+        } else {
+            // forward index to the next word after the prefix
+            index++;
+        }
+
+        if (index < words.length) {
             String tmp;
-            while((++index < words.length &&
-                    (tmp = words[index]).startsWith(prefix))) {
+            while((index < words.length &&
+                    (tmp = words[index++]).startsWith(prefix))) {
                 matchingWords.add(tmp);
             }
         }
-        return matchingWords.stream().toArray(String[]::new);
+        return matchingWords.toArray(new String[0]);
     }
 
     /**

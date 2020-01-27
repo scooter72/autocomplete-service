@@ -5,10 +5,7 @@ import server.data.Dictionary;
 import server.data.FileDictionary;
 import server.model.ServerStatistics;
 import server.statistics.InMemStatisticsService;
-
-import java.util.Arrays;
 import java.util.Random;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AutoCompleteServiceTest {
@@ -20,10 +17,30 @@ public class AutoCompleteServiceTest {
         String[] expectedResult = new String[]{"AAH","AAHED","AAHING","AAHS","AAL","AALII","AALIIS","AALS","AARDVARK",
                     "AARDVARKS","AARDWOLF","AARDWOLVES","AARGH","AARRGH","AARRGHH","AARTI","AARTIS","AAS","AASVOGEL",
                     "AASVOGELS"};
-            String[] array = service.getWordsStartingPrefix("AA");
-            assertTrue(Arrays.equals(expectedResult, array),
-                    "Unexpected result");
+            String[] actualResult = service.getWordsStartingPrefix("AA");
+        assertArrayEquals(expectedResult, actualResult, "Unexpected result");
     }
+
+    @Test
+    public void testGetWordsPrefixNotInDictionary() {
+
+        AutoCompleteService service = getAutoCompleteService();
+
+        String[] expectedResult = new String[]{"ZZZ","ZZZS"};
+        String[] actualResult = service.getWordsStartingPrefix("ZZ");
+        assertArrayEquals(expectedResult, actualResult, "Unexpected result");
+    }
+
+    @Test
+    public void testGetWordsPrefixIsLastInDictionary() {
+
+        AutoCompleteService service = getAutoCompleteService();
+
+        String[] expectedResult = new String[0];
+        String[] actualResult = service.getWordsStartingPrefix("ZZZS");
+        assertArrayEquals(expectedResult, actualResult, "Unexpected result");
+    }
+
     @Test
     public void testService_UnexpectedNullDictionary() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
@@ -36,6 +53,7 @@ public class AutoCompleteServiceTest {
         String actualMessage = exception.getMessage();
         assertEquals(expectedMessage, actualMessage);
     }
+
 
     @Test
     public void testService_UnexpectedNullStatisticsService() {
@@ -53,22 +71,22 @@ public class AutoCompleteServiceTest {
     @Test
     public void testService_NullInput() {
         AutoCompleteService service = getAutoCompleteService();
-        String[] array = service.getWordsStartingPrefix(null);
-        assertArrayEquals(new String[0], array, "Unexpected result");
+        String[] actualResult = service.getWordsStartingPrefix(null);
+        assertArrayEquals(new String[0], actualResult, "Unexpected result");
     }
 
     @Test
     public void testService_NumberInput() {
         AutoCompleteService service = getAutoCompleteService();
-        String[] array = service.getWordsStartingPrefix("42");
-        assertArrayEquals(new String[0], array, "Unexpected result");
+        String[] actualResult = service.getWordsStartingPrefix("42");
+        assertArrayEquals(new String[0], actualResult, "Unexpected result");
     }
 
     @Test
     public void testService_EmptyInput() {
         AutoCompleteService service = getAutoCompleteService();
-        String[] array = service.getWordsStartingPrefix("");
-        assertArrayEquals(new String[0], array, "Unexpected result");
+        String[] actualResult = service.getWordsStartingPrefix("");
+        assertArrayEquals(new String[0], actualResult, "Unexpected result");
     }
 
     @Test
