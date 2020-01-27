@@ -24,7 +24,7 @@ The below illustration depicts the binary-search solution:
 Alternative solution would be to create a tree structure that maps all the possible substrings of the words in the dictionary, holding in each node list of refrences to the all the word indexes in the dictionary, acommulated until that node.
 The complexcity of this solultion is constant time *len(prefix) x O(1)*.  
 One would argue that scanning 300K words using binary search is fast enough not to justify the second approach, but the decision needs to be taken based on a benchmark and a defined SLA.  
-The below illustration depicts the binary-search solution:  
+The below illustration depicts the more optimized tree based solution:  
 ![AutoComplete_Opt](/AutoComplete_Opt.jpg)  
 2. **Scalability - how would you scale up your solution and what are the implications**  
 A scalable solution would be to deploy the service in docker containers, let kubernetes orchestrate the containers at runtime adding and removing nodes based on the CPU and memory usage thresholds, and place a load balancer in front of the service nodes.
