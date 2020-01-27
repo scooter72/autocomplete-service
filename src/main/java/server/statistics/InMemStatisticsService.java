@@ -3,18 +3,19 @@ package server.statistics;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * Default in-memory implementation of StatisticsService interface.
  */
 public class InMemStatisticsService implements StatisticsService {
 
-    private List<Long> requestHandledTimeSpanRecords = new ArrayList<>();
-    private AtomicInteger requestHandledCounter = new AtomicInteger();
+    private AtomicInteger requestHandledCounter = new AtomicInteger(0);
+    private AtomicLong totalRequestTimes = new AtomicLong();
 
     @Override
     public void onRequestHandled(RequestHandledEvent event) {
-        requestHandledTimeSpanRecords.add(event.getRequestHandleTimeSpanMs());
+        totalRequestTimes.addAndGet(event.getRequestHandleTimeSpanMs());
         requestHandledCounter.incrementAndGet();
     }
 
@@ -25,12 +26,8 @@ public class InMemStatisticsService implements StatisticsService {
 
     @Override
     public double getAverageRequestHandleTimeMs() {
-        return requestHandledTimeSpanRecords.isEmpty()
+        return requestHandledCounter.get() == 0
                 ? 0
-                : requestHandledTimeSpanRecords
-                .stream()
-                .mapToLong(Long::longValue)
-                .average()
-                .getAsDouble();
+                :  (double) (totalRequestTimes.get() / requestHandledCounter.get());
     }
 }
