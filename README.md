@@ -17,7 +17,7 @@ Instructions on how to deploy \ run the service
 Discussion
 ----------
 1. **Performance - analysis and ways to improve**  
-The solution utilizes binary search in an array of words to pick up the index of the prefix argument and returns all the words starting with the prefix from that index. 
+The solution utilizes binary search in a sorted array of words. We pick up the index of the prefix argument and returns all the words starting with the prefix from that index. 
 Another solution would be to map the first letter of each word to 26 dictionaries which in turn maps the second letter and so on and so forth, this approach will retuen result in constant time and not log n (it might be slightly worse than log(n), because each comparison in the worst case is O( len(prefix) ). So it's actually O(log(n)*len(prefix))), but one would argue that scanning 300K words using binary search is fast enough not to justify the second approach.
 
 2. **Scalability - how would you scale up your solution and what are the implications**  
