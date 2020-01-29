@@ -18,7 +18,7 @@ Discussion
 ----------
 - **Performance - analysis and ways to improve**  
   - **The solution** sorts the diciotnary once and utilizes a binary search in each query. We pick up the index of the prefix returned by the binary search and return all the words starting from that index.
-The complexcity of this solultion is *O(log(n) x len(prefix))* because each comparison in the worst case is O( len(prefix) ).
+The complexcity of this solultion is *O(log(n) x len(prefix))* because each comparison in the worst case is O( len(prefix) ).  
 The below illustration depicts the binary-search solution:  
 ![binary-search](/binary-search.jpg)    
   - **Alternative solution** would be to create a tree structure that maps all the possible substrings of the words in the dictionary, holding in each node list of refrences to the all the word indexes in the dictionary, acommulated until that node.
