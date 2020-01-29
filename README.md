@@ -31,7 +31,7 @@ The below illustration depicts the more optimized tree based solution:
 A scalable solution would be to deploy the service in a cluster of docker containers, let kubernetes orchestrate the containers at runtime adding and removing nodes based on the CPU and memory usage thresholds, and place a load balancer in front of the service nodes.  
 The below illustration depicts the suggested distributed solution:  
 ![deployment](/Deployment.jpg)    
-**Using Reactive Streams for Handling Concurrent Requests**  
+**Using Reactive Streams to improve the overall performance and scalability of the application**  
 [Project Reactor](https://projectreactor.io/) is a powerful foundational library for building reactive and efficient applications on the JVM based on the [Reactive Streams Specification](https://github.com/reactive-streams/reactive-streams-jvm).    
 Reactive types are not intended to allow you to process your requests or data faster, in fact they will introduce a small overhead compared to regular blocking processing. Their strength lies in their capacity to serve more request concurrently, and to handle operations with latency, such as requesting data from a remote server, more efficiently.
 With the right implementation, the use streams of API, can greatly improve the throughput, and the overall performance and scalability of the application.
