@@ -26,6 +26,11 @@ The complexcity of this solultion is constant time *len(prefix) x O(1)*.
 One would argue that scanning 300K words using binary search is fast enough not to justify the second approach, but the decision needs to be taken based on a benchmark and a defined SLA.  
 The below illustration depicts the more optimized tree based solution:  
 ![AutoComplete_Opt](/AutoComplete_Opt.jpg)  
+**Using Reactive Streams for Handling Concurrent Requests**  
+[Project Reactor](https://projectreactor.io/) is a powerful foundational library for building reactive and efficient applications on the JVM based on the [Reactive Streams Specification](https://github.com/reactive-streams/reactive-streams-jvm).    
+Reactive types are not intended to allow you to process your requests or data faster, in fact they will introduce a small overhead compared to regular blocking processing. Their strength lies in their capacity to serve more request concurrently, and to handle operations with latency, such as requesting data from a remote server, more efficiently.
+For more inforamtion on Reactor Core 3.0 
+
 2. **Scalability - how would you scale up your solution and what are the implications**  
 A scalable solution would be to deploy the service in docker containers, let kubernetes orchestrate the containers at runtime adding and removing nodes based on the CPU and memory usage thresholds, and place a load balancer in front of the service nodes.  
 The below illustration depicts the suggested distributed solution:  
