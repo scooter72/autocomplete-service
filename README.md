@@ -34,6 +34,7 @@ The below illustration depicts the suggested distributed solution:
 **Using Reactive Streams for Handling Concurrent Requests**  
 [Project Reactor](https://projectreactor.io/) is a powerful foundational library for building reactive and efficient applications on the JVM based on the [Reactive Streams Specification](https://github.com/reactive-streams/reactive-streams-jvm).    
 Reactive types are not intended to allow you to process your requests or data faster, in fact they will introduce a small overhead compared to regular blocking processing. Their strength lies in their capacity to serve more request concurrently, and to handle operations with latency, such as requesting data from a remote server, more efficiently.
+With the right implmentation the use streams of API, can greatly improve the throughput, and the overall performance and scalability of the application.
 
 3. **High availability - how would you make your solution always (99.99% of the time) available**  
 By applying the deplyment approach described above, and using more than one geo-region of a cloud provider for deployment, we can make the solution highly available.
