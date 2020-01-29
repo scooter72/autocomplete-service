@@ -21,7 +21,7 @@ Discussion
 The complexcity of this solultion is *O(log(n) x len(prefix))* because each comparison in the worst case is O( len(prefix) ).    
 *The below illustration depicts the binary-search solution:*  
 ![binary-search](/binary-search.jpg)  
-  1. **Alternative solution** would be to create a tree structure that maps all the possible substrings of the words in the dictionary, holding in each node list of refrences to the all the word indexes in the dictionary, acommulated until that node.
+   1. **Alternative solution** would be to create a tree structure that maps all the possible substrings of the words in the dictionary, holding in each node list of refrences to the all the word indexes in the dictionary, acommulated until that node.
 The complexcity of this solultion is constant time *len(prefix) x O(1)*.  
 One would argue that scanning 300K words using binary search is fast enough not to justify the second approach, but the decision needs to be taken based on a benchmark and a defined SLA.        
 *The below illustration depicts the more optimized tree based solution:*  
